@@ -11,10 +11,20 @@ namespace Demo.Presentation.Controllers
     public class DepartmentController(IDepartmentService _departmentService
         , IWebHostEnvironment _env, ILogger<DepartmentController> _logger) : Controller
     {
+        // ViewData , ViewBag ==> ViewStorage ==> Deal With The Same Storage
+        // ExtraInfo [Extra Data]
+        // Controller --> View
+        // View --> Partial view
+        // View --> Layout
+        // ViewData [Safe] [.Net 3.5]
+        // ViewBag [UnSafe] [.Net 4.0] ==>Dynamic
+
         #region Index
         [HttpGet]
         public IActionResult Index()
         {
+            ViewData["Message"] = "Hello In Departments";
+            //ViewBag.Message01 = "Hello From View Bag";
             var departments = _departmentService.GetAllDepartments();
             return View(departments);
         }
