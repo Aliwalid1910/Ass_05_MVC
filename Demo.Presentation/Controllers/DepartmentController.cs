@@ -23,7 +23,7 @@ namespace Demo.Presentation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewData["Message"] = "Hello In Departments";
+            //ViewData["Message"] = "Hello In Departments";
             //ViewBag.Message01 = "Hello From View Bag";
             var departments = _departmentService.GetAllDepartments();
             return View(departments);
@@ -52,15 +52,20 @@ namespace Demo.Presentation.Controllers
                         DateOfCreation = departmentviewmodel.CreatedOn,
                         Name = departmentviewmodel.Name,
                     });
+                    string message;
                     if (result > 0)
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
+                        message = "Department Created Successfuly";
+                    //{
+                    //    return RedirectToAction(nameof(Index));
+                    //}
                     else
-                    {
-                        ModelState.AddModelError(string.Empty, "Department Can not be Created !!");
+                        message = "Department Can not be Created";
+                    //{
+                    //    ModelState.AddModelError(string.Empty, "Department Can not be Created !!");
 
-                    }
+                    //}
+                    TempData["Message"] = message;
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
                 {
