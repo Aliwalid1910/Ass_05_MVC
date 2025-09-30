@@ -8,10 +8,22 @@ namespace Demo.BusinessLogic.Services.Classes
 {
     public class EmployeeService(IEmployeeRepositorie _employeeRepository , IMapper _mapper) : IEmployeeService
     {
+
+
         public IEnumerable<EmployeeDto> GetAllEmployees(bool withTracking = false)
         {
-           var employees = _employeeRepository.GetAll(withTracking);
-            var employeesDto = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeDto>>(employees);
+            //    var employeeDto = _employeeRepository.GetIQueryable().Where(e => e.IsDeleted == false)
+            //        .Select(e => new EmployeeDto()
+            //        {
+            //            Id = e.Id,
+            //            Name = e.Name,
+            //            Salary = e.Salary,
+            //            Age = e.Age,
+            //        });
+            //    return employeeDto.ToList();
+
+            var employees = _employeeRepository.GetAll(withTracking);
+        var employeesDto = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeDto>>(employees);
             //var employeesDto = employees.Select(E => new EmployeeDto()
             //{
             //    Email = E.Email,
@@ -23,10 +35,10 @@ namespace Demo.BusinessLogic.Services.Classes
             //    Gender = E.Gender.ToString(),
             //    EmployeeType = E.EmployeeType.ToString(),
 
-            //});
-            return employeesDto;
+                //});
+                return employeesDto;
 
-        }
+            }
 
         public EmployeeDetailsDto? GetEmployeeById(int id)
         {

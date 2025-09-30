@@ -39,5 +39,15 @@ namespace Demo.DataAccess.Repositories.Classes
             _dbContext.Set<TEntity>().Remove(entity); // Update Locally
             return _dbContext.SaveChanges();  //num of Rows Deleted
         }
+
+        //public IEnumerable<TEntity> GetIEnumerable()
+        //{
+        //    return _dbContext.Set<TEntity>();
+        //}
+
+        //public IQueryable<TEntity> GetIQueryable()
+        //{
+        //    return _dbContext.Set<TEntity>();
+        //}
     }
 }
