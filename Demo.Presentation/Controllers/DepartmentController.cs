@@ -28,6 +28,7 @@ namespace Demo.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken] //  ===> Action Filter
         public IActionResult Create(CreatedepartmentDto departmentDto)
         {
             if (ModelState.IsValid) // Server Side Validation
@@ -95,6 +96,7 @@ namespace Demo.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit([FromRoute]int? id, DepartmentEditViewModel departmentVM)
         {
             if (ModelState.IsValid)
@@ -152,6 +154,7 @@ namespace Demo.Presentation.Controllers
 
         //}
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             if (id == 0) return BadRequest();

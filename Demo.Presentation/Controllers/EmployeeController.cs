@@ -26,6 +26,7 @@ namespace Demo.Presentation.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(CreateEmployeeDto employeeDto)
         {
             if (ModelState.IsValid) // Server Side Validation
@@ -95,6 +96,7 @@ namespace Demo.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit([FromRoute] int? id ,  UpdatedEmployeeDto employeeDto)
         { 
             if(!id.HasValue || id != employeeDto.Id) return BadRequest();
@@ -129,6 +131,7 @@ namespace Demo.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             if (id == 0) return BadRequest();
