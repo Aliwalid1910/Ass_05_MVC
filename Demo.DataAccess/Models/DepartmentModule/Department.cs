@@ -1,4 +1,5 @@
-﻿using Demo.DataAccess.Models.Shared;
+﻿using Demo.DataAccess.Models.EmployeeModule;
+using Demo.DataAccess.Models.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Demo.DataAccess.Models.DepartmentModule
         public string Name { get; set; } = null!;
         public string Code { get; set; } = null!;
         public string? Description { get; set; }
+
+        public ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
     }
 }

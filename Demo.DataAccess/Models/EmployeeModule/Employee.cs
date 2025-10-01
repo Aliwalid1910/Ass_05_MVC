@@ -1,4 +1,5 @@
-﻿using Demo.DataAccess.Models.Shared;
+﻿using Demo.DataAccess.Models.DepartmentModule;
+using Demo.DataAccess.Models.Shared;
 
 namespace Demo.DataAccess.Models.EmployeeModule
 {
@@ -14,6 +15,9 @@ namespace Demo.DataAccess.Models.EmployeeModule
         public DateTime HiringDate { get; set; }
         public EmployeeType EmployeeType { get; set; }
         public Gender Gender { get; set; }
+
+        public Department? Department { get; set; }
+        public int? DepartmentId { get; set; } 
 
     }
 }

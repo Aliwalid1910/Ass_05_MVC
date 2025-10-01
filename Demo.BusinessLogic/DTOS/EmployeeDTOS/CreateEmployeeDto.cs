@@ -6,6 +6,7 @@ namespace Demo.BusinessLogic.DTOS.EmployeeDTOS
 {
     public class CreateEmployeeDto
     {
+
         [Required(ErrorMessage = "Name Can't Be Null")]
         [MaxLength(50, ErrorMessage = "Max length should be 50 character")]
         [MinLength(3, ErrorMessage = "Min length should be 3 characters")]
@@ -37,5 +38,7 @@ namespace Demo.BusinessLogic.DTOS.EmployeeDTOS
         public Gender Gender { get; set; }
 
         public EmployeeType EmployeeType { get; set; }
+        public int? DepartmentId { get; set; }
+
     }
 }
