@@ -16,7 +16,7 @@ namespace Demo.DataAccess.Models.EmployeeModule
         public EmployeeType EmployeeType { get; set; }
         public Gender Gender { get; set; }
 
-        public Department? Department { get; set; }
+        public  virtual Department? Department { get; set; }
         public int? DepartmentId { get; set; } 
 
     }

@@ -23,6 +23,7 @@ namespace Demo.Presentation
             {
                 //options.UseSqlServer("Connection string");
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+                options.UseLazyLoadingProxies();
             });
 
             builder.Services.AddScoped<IDepartmentRepositorie, DepartmentRepositorie>();
